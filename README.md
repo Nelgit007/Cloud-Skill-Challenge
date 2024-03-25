@@ -18,6 +18,7 @@ This project highlights Jenkins as a robust Continuous Integration tool and its 
 ## Best Practise
 
 Before proceeding with installations on your new EC2 machine, run the following command:
+
 1.) Update system
 
 ```
@@ -57,3 +58,58 @@ echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
 sudo apt-get update
 sudo apt-get install jenkins
 ```
+
+## Configure your EC2 instance:
+- Jenkins runs on port 8080, hence expose your instance to be accessed on port 8080
+- picture
+- Go to Security Group (NB: Ensure you verify the SG connected to the specific instance, if you have multiple instance running)
+- Edit Inbound Traffic
+- Add a new rule
+- Save
+
+## Configur Jenkins
+
+Run the command to copy Jenkins admin password:
+
+```
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+```
+copy password and loginto Jenkins:
+
+- Picture
+
+Install Plugins:
+
+- Picture
+
+Setup Admin User:
+
+- Picture
+
+Follow the prompt and Yaa! Jenkis id set for use:
+
+- Picture
+
+## Docker Slave Configuration
+
+Instal DOcker with the following command:
+
+```
+sudo apt install docker.io
+```
+
+## Grant Both Jenkins user and Ubuntu user, permission to docker deamon with the command.
+
+```
+sudo su -
+usermod -aG docker jenkins
+usermod -aG docker ubuntu
+systemctl restart docker
+```
+
+## Restart Jenkind
+- http://<url>:port/restart
+
+# Install Docker Plugins inside of Jenkins
+
+
