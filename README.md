@@ -113,3 +113,7 @@ systemctl restart docker
 # Install Docker Plugins inside of Jenkins
 
 
+
+- Set up jenkins pipeline to verify docker agent status
+- picture
+
